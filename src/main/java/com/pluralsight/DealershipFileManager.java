@@ -15,7 +15,7 @@ public class DealershipFileManager {
             String address = dealershipInfo[1];
             String phoneNumber = dealershipInfo[2];
 
-            vehicleDealership = new Dealership(name,address,phoneNumber);
+            vehicleDealership = new Dealership(name, address, phoneNumber);
 
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {
@@ -29,7 +29,7 @@ public class DealershipFileManager {
                 int odometer = Integer.parseInt(tokens[6]);
                 BigDecimal price = new BigDecimal(tokens[7]);
 
-                Vehicle vehicle = new Vehicle(vin,year,make,model,type,color,odometer,price);
+                Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
                 vehicleDealership.addVehicle(vehicle);
 
             }
@@ -42,7 +42,7 @@ public class DealershipFileManager {
         return vehicleDealership;
     }
 
-    public void saveDealership(Dealership dealership){
+    public void saveDealership(Dealership dealership) {
         List<Vehicle> inventory = dealership.getAllVehicles();
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv"));
