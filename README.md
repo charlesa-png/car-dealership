@@ -87,6 +87,7 @@ private int getValidInt(String prompt) {
 ## Future Work
 
 - A more aesthetically pleasing menu
+- Fix menu bug (invalid entry)
 
 ## Resources
 
@@ -94,6 +95,7 @@ private int getValidInt(String prompt) {
 
 - Java YearUp Fall 2026 hub: <https://raymaroun.github.io/yearup-java-fall2026/>
 - Visual hub: https://raymaroun.github.io/yearup-java-fall2026/week-05/exercises/car-dealership.html
+- My Capstone 1 Project: https://github.com/charlesa-png/accounting-ledger/blob/master/src/main/java/com/pluralsight/FinancialTracker.java
 
 ## Author
 

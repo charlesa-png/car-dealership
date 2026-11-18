@@ -141,6 +141,7 @@ public class UserInterface {
 
         dealership.addVehicle(new Vehicle(vin, year, make, model, type, color, mileage, price));
         new DealershipFileManager().saveDealership(dealership);
+        System.out.println("\nVehicle added successfully.\n");
     }
 
     public void processRemoveVehicleRequest() {
@@ -149,8 +150,11 @@ public class UserInterface {
         for (Vehicle vehicle : inventory) {
             if (vin == vehicle.getVin()) {
                 dealership.removeVehicle(vehicle);
-                new DealershipFileManager().saveDealership(dealership);
+                break;
             }
         }
+
+        new DealershipFileManager().saveDealership(dealership);
+        System.out.println("\nVehicle removed successfully.\n");
     }
 }
