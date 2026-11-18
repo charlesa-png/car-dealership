@@ -2,24 +2,25 @@ package com.pluralsight;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealership {
     private String name;
     private String address;
     private String phone;
+
     private ArrayList<Vehicle> inventory;
 
     public Dealership(String name,
                       String address,
-                      String phone,
-                      ArrayList<Vehicle> inventory) {
+                      String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = inventory;
+        this.inventory = new ArrayList<>();
     }
 
-
+//getters && setters
     public String getPhone() {
         return phone;
     }
@@ -52,39 +53,46 @@ public class Dealership {
 
     }
 
-    public void getAllVehicles(){
-        System.out.println("VIN | Year | Make | Model | Vehicle Type | Color | Odometer | Price");
-        System.out.println("--------------------------------------------------------------------");
-        for (Vehicle vehicle : inventory) {
-            System.out.println(vehicle.getVin() + " " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " " + vehicle.getVehicleType() + " " + vehicle.getColor() + " " + vehicle.getOdometer() + " " + vehicle.getPrice() + "\n");
-        }
+    public List<Vehicle> getAllVehicles(){
+//        System.out.println("VIN | Year | Make | Model | Vehicle Type | Color | Odometer | Price");
+//        System.out.println("--------------------------------------------------------------------");
+//        for (Vehicle vehicle : inventory) {
+//            System.out.println(vehicle.getVin() + " " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + " " + vehicle.getVehicleType() + " " + vehicle.getColor() + " " + vehicle.getOdometer() + " " + vehicle.getPrice() + "\n");
+//        }
+        return inventory;
     }
 
     //Search methods
-    public void getVehiclesByPrice (BigDecimal min, BigDecimal max){
+    public List<Vehicle> getVehiclesByPrice (BigDecimal min, BigDecimal max){
 //        for (Vehicle car : inventory) {
 //
 //        }
+        return null;
     }
 
-    public void getVehiclesByMakeModel(String make, String model){
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model){
 
+        return null;
     }
 
-    public void getVehiclesByYear (int year){
+    public List<Vehicle> getVehiclesByYear (int minYear, int maxYear){
 
+        return null;
     }
 
-    public void getVehiclesByColor(String color){
+    public List<Vehicle> getVehiclesByColor(String color){
 
+        return null;
     }
 
-    public void getVehiclesByMileage(int min, int max){
+    public List<Vehicle> getVehiclesByMileage(int min, int max){
 
+        return null;
     }
 
-    public void getVehiclesByType(String vehicleType){
+    public List<Vehicle> getVehiclesByType(String vehicleType){
 
+        return null;
     }
 
 }
