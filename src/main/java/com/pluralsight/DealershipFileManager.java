@@ -1,8 +1,8 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class DealershipFileManager {
     public Dealership getDealership() {
@@ -37,13 +37,26 @@ public class DealershipFileManager {
             reader.close();
 
         } catch (Exception ex) {
-            System.out.println("Something went wrong!");
+            System.out.println("Something went wrong.");
         }
         return vehicleDealership;
     }
 
-    public void saveDealership(String dealership){
+    public void saveDealership(Dealership dealership){
+        List<Vehicle> inventory = dealership.getAllVehicles();
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv"));
+            writer.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
+            writer.newLine();
 
+            for (Vehicle vehicle : inventory) {
+                writer.write(vehicle.toString());
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Something went wrong.");
+        }
     }
 }
 
