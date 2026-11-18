@@ -113,7 +113,28 @@ public class UserInterface {
     }
 
     public void processAddVehicleRequest() {
+System.out.println("Enter the VIN of the vehicle:\n");
+int vin = scanner.nextInt();
+scanner.nextLine();
+System.out.println("Enter the year of the vehicle:\n");
+int year = scanner.nextInt();
+scanner.nextLine();
+System.out.println("Enter the make of the vehicle:\n");
+String make = scanner.nextLine();
+        System.out.println("Enter the model of the vehicle:\n");
+        String model = scanner.nextLine();
+        System.out.println("Enter the type of the vehicle:\n\t(ex.SUV, Car, Truck)\n");
+        String type = scanner.nextLine();
+        System.out.println("Enter the color of the vehicle:\n");
+        String color = scanner.nextLine();
+        System.out.println("Enter the vehicle mileage:\n");
+        int mileage = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Enter the price of the vehicle:\n");
+        BigDecimal price = scanner.nextBigDecimal();
+        scanner.nextLine();
 
+        dealership.addVehicle(new Vehicle(vin,year,make,model,type,color,mileage,price));
     }
 
     public void processRemoveVehicleRequest() {
