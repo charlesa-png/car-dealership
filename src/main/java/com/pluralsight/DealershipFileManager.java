@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.math.BigDecimal;
 
 public class DealershipFileManager {
-    public void getDealership() {
-
+    public Dealership getDealership() {
+        Dealership vehicleDealership = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"));
             String headerLine = reader.readLine();
@@ -15,7 +15,7 @@ public class DealershipFileManager {
             String address = dealershipInfo[1];
             String phoneNumber = dealershipInfo[2];
 
-            Dealership vehicleDealership = new Dealership(name,address,phoneNumber);
+            vehicleDealership = new Dealership(name,address,phoneNumber);
 
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {
@@ -39,6 +39,7 @@ public class DealershipFileManager {
         } catch (Exception ex) {
             System.out.println("Something went wrong!");
         }
+        return vehicleDealership;
     }
 
     public void saveDealership(String dealership){
