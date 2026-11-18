@@ -111,14 +111,32 @@ public class UserInterface {
     public void processGetAllVehiclesRequest() {
         displayVehicles(dealership.getAllVehicles());
     }
+//personal helper methods for add vehicle
+    private int getValidInt(String prompt) {
+        while (true) {
+            try {
+                System.out.println(prompt);
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a whole number.");
+            }
+        }
+    }
+
+    private BigDecimal getValidBigDecimal(String prompt) {
+        while (true) {
+            try {
+                System.out.println(prompt);
+                return new BigDecimal(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid price.");
+            }
+        }
+    }
 
     public void processAddVehicleRequest() {
-System.out.println("Enter the VIN of the vehicle:\n");
-int vin = scanner.nextInt();
-scanner.nextLine();
-System.out.println("Enter the year of the vehicle:\n");
-int year = scanner.nextInt();
-scanner.nextLine();
+int vin = getValidInt("Enter the VIN of the vehicle:\n")
+int year = getValidInt("Enter the year of the vehicle:\n")
 System.out.println("Enter the make of the vehicle:\n");
 String make = scanner.nextLine();
         System.out.println("Enter the model of the vehicle:\n");
@@ -127,17 +145,19 @@ String make = scanner.nextLine();
         String type = scanner.nextLine();
         System.out.println("Enter the color of the vehicle:\n");
         String color = scanner.nextLine();
-        System.out.println("Enter the vehicle mileage:\n");
-        int mileage = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Enter the price of the vehicle:\n");
-        BigDecimal price = scanner.nextBigDecimal();
-        scanner.nextLine();
+        int mileage = getValidInt("Enter the vehicle mileage:\n");
+        BigDecimal price = getValidBigDecimal("Enter the price of the vehicle:\n");
 
         dealership.addVehicle(new Vehicle(vin,year,make,model,type,color,mileage,price));
     }
 
     public void processRemoveVehicleRequest() {
-
+        int vin = getValidInt("Enter the VIN of the Vehicle you'd like to remove:\n");
+        List <Vehicle>inventory = dealership.getAllVehicles();
+        for (Vehicle vehicle : inventory) {
+            if (vin == vehicle.getVin()){
+                dealership.removeVehicle(vehicle);
+            }
+        }
     }
 }
